@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-night: #06141a;
+  --color-deep: #0b2a33;
+  --color-ganga: #19c3b1;
+  --color-foam: #e8fbf8;
+  --color-ember: #ff6b2c;
+  --color-sand: #f6efe4;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply bg-night text-foam font-sans antialiased; }
+h1, h2, h3, h4 { @apply font-display tracking-tight; }
+::selection { background: var(--color-ember); color: white; }
+
+@keyframes wave { to { transform: translateX(-50%); } }
+.animate-wave-a { animation: wave 14s linear infinite; }
+.animate-wave-b { animation: wave 22s linear infinite reverse; }
+@keyframes float { 50% { transform: translateY(-12px); } }
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation: none !important; scroll-behavior: auto !important; }
+}
